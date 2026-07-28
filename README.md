@@ -1,31 +1,43 @@
 <div align="center">
 
-# Hi, I'm Harsh Vardhan 👋
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1f6feb,100:6f42c1&height=200&section=header&text=Harsh%20Vardhan&fontSize=60&fontColor=ffffff&animation=fadeIn&desc=AI%20%2F%20Machine%20Learning%20Engineer&descSize=22&descAlignY=75" width="100%" alt="banner"/>
 
-### AI / Machine Learning Engineer
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=1F6FEB&center=true&vCenter=true&width=600&lines=Building+Agentic+AI+Systems;RAG+Pipelines+%26+LLM+Applications;Computer+Vision+%26+Deep+Learning;MLOps+%7C+Deploying+Models+to+Production" alt="typing animation"/>
 
-Building intelligent systems — from RAG pipelines and agentic AI to computer vision and MLOps.
+<br/>
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-theharshvardhan01.github.io-1f6feb?style=for-the-badge&logo=githubpages&logoColor=white)](https://theharshvardhan01.github.io)
 [![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harsh.vardhan_btech23@gsv.ac.in)
 
 </div>
 
----
-
 ## 🧠 About Me
 
-- 🎓 B.Tech student at **Gati Shakti Vishwavidyalaya (GSV)**, specializing in AI & Machine Learning
-- 🤖 Working across **LLMs, RAG, agentic systems, computer vision, and anomaly detection**
-- ⚙️ Hands-on with the full ML lifecycle — data pipelines, model training, evaluation, and **MLOps deployment**
-- 🔬 Currently exploring **multi-agent architectures** and rigorous **LLM evaluation & benchmarking**
-- 🌱 Always learning, always shipping
+I am an AI/ML engineer and a B.Tech student at **Gati Shakti Vishwavidyalaya (GSV)**. I enjoy taking machine learning ideas all the way from a notebook experiment to a working product that real people can use.
+
+- 🤖 I build **Agentic AI systems**: autonomous agents that can plan, use tools, and complete multi-step tasks on their own
+- 🔍 I work with **LLMs and RAG pipelines** for question answering over documents and the web
+- 👁️ I apply **computer vision and deep learning** to problems like image forgery detection and gesture recognition
+- ⚙️ I care about **MLOps**: clean data pipelines, reproducible training, evaluation, and deployment
+- 🌱 Right now I am exploring **multi-agent architectures** and rigorous **LLM evaluation and benchmarking**
+
+## 🤖 Agentic AI
+
+This is the area I am most excited about. Instead of a single prompt and a single answer, I design systems where an LLM acts as an agent. It breaks a goal into steps, calls tools and APIs, checks its own results, and keeps going until the job is done.
+
+Some of the things I have built and worked on:
+
+- **AI Krishidoot**, an agentic assistant that helps hyperlocal farmers with advice and information in a simple, accessible way
+- **AssetOpsBench**, where AI agents are benchmarked on real Industry 4.0 asset operations tasks
+- **RAGvisor**, a retrieval-augmented app where the model grounds its answers in PDFs and live web content instead of guessing
 
 ## 🛠️ Tech Stack
 
 **Languages**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
@@ -54,13 +66,13 @@ Building intelligent systems — from RAG pipelines and agentic AI to computer v
 
 ## 🚀 Featured Projects
 
-| Project | Description | Tech |
-|---------|-------------|------|
-| 🔍 [**RAGvisor**](https://github.com/TheharshVardhan01/RAGvisor) | AI-powered Q&A over PDFs and the web using Retrieval-Augmented Generation with Groq LLMs | Python · LangChain · Streamlit |
-| 🛡️ [**DeepDetect**](https://github.com/TheharshVardhan01/DeepDetect) | Browser extension + AI backend that detects tampered and fake images | JavaScript · Python · CV |
-| 🌾 [**AI Krishidoot**](https://github.com/TheharshVardhan01/AI_Krishidoot) | Agentic AI assistant built for the welfare of hyperlocal farmers | Python · LLM Agents |
-| ✋ [**Gesture Media Control**](https://github.com/TheharshVardhan01/Hand-Gesture-Controll-using-machine-leanrning-in-python-) | Touch-free media playback and volume control using real-time hand-gesture recognition | Python · OpenCV · ML |
-| 🏭 [**AssetOpsBench**](https://github.com/TheharshVardhan01/AssetOpsBench) | Benchmarking AI agents for Industry 4.0 asset operations | Python · Agents |
+| Project | What it does | Tech |
+|---------|--------------|------|
+| 🔍 [**RAGvisor**](https://github.com/TheharshVardhan01/RAGvisor) | Answers questions from PDFs and the web using Retrieval-Augmented Generation with Groq LLMs | Python · LangChain · Streamlit |
+| 🛡️ [**DeepDetect**](https://github.com/TheharshVardhan01/DeepDetect) | A browser extension with an AI backend that detects tampered and fake images | JavaScript · Python · CV |
+| 🌾 [**AI Krishidoot**](https://github.com/TheharshVardhan01/AI_Krishidoot) | An agentic AI assistant built for the welfare of hyperlocal farmers | Python · LLM Agents |
+| ✋ [**Gesture Media Control**](https://github.com/TheharshVardhan01/Hand-Gesture-Controll-using-machine-leanrning-in-python-) | Lets you play, pause, and change volume with hand gestures, no touch needed | Python · OpenCV · ML |
+| 🏭 [**AssetOpsBench**](https://github.com/TheharshVardhan01/AssetOpsBench) | A benchmark for AI agents on Industry 4.0 asset operations | Python · Agents |
 
 ## 📊 GitHub Stats
 
@@ -71,14 +83,26 @@ Building intelligent systems — from RAG pipelines and agentic AI to computer v
 
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=TheharshVardhan01&theme=tokyonight&hide_border=true" alt="GitHub streak" />
 
+<img src="https://github-profile-activity-graph.vercel.app/graph?username=TheharshVardhan01&theme=tokyo-night&hide_border=true&area=true" width="95%" alt="Contribution activity graph" />
+
+</div>
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=TheharshVardhan01&theme=tokyonight&no-frame=true&column=7&margin-w=8" alt="GitHub trophies" />
+
 </div>
 
 ---
 
 <div align="center">
 
-💬 Open to collaborations on AI/ML projects and research — feel free to reach out!
+💬 I am open to collaborations on AI/ML projects and research. Feel free to reach out!
 
 ![Profile views](https://komarev.com/ghpvc/?username=TheharshVardhan01&color=1f6feb&style=flat-square)
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6f42c1,100:1f6feb&height=110&section=footer" width="100%" alt="footer"/>
 
 </div>
