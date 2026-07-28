@@ -1,0 +1,45 @@
+<svg width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#bc8cff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="220" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <rect width="1000" height="220" rx="12" fill="url(#glow)"/>
+
+  <!-- subtle network motif, right side -->
+  <g stroke="#58a6ff" stroke-opacity="0.22" stroke-width="1" fill="none">
+    <path d="M700,60 L780,40 L860,70 L930,45"/>
+    <path d="M700,60 L760,110 L850,120 L930,95"/>
+    <path d="M780,40 L760,110 M860,70 L850,120 M760,110 L790,175 M850,120 L890,170 M790,175 L890,170 M930,95 L890,170"/>
+    <path d="M700,60 L680,130 L790,175 M680,130 L760,110"/>
+  </g>
+  <g fill="#58a6ff" fill-opacity="0.55">
+    <circle cx="700" cy="60" r="3"/>
+    <circle cx="780" cy="40" r="2.5"/>
+    <circle cx="860" cy="70" r="3"/>
+    <circle cx="930" cy="45" r="2"/>
+    <circle cx="760" cy="110" r="3.5"/>
+    <circle cx="850" cy="120" r="2.5"/>
+    <circle cx="930" cy="95" r="2"/>
+    <circle cx="680" cy="130" r="2.5"/>
+    <circle cx="790" cy="175" r="3"/>
+    <circle cx="890" cy="170" r="2.5"/>
+  </g>
+  <circle cx="760" cy="110" r="6" fill="none" stroke="#58a6ff" stroke-opacity="0.5">
+    <animate attributeName="r" values="4;10;4" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- text -->
+  <text x="56" y="92" fill="#e6edf3" font-size="42" font-weight="700" letter-spacing="0.5">Harsh Vardhan</text>
+  <text x="58" y="124" fill="#8b949e" font-size="19" font-weight="500">AI / Machine Learning Engineer</text>
+  <rect x="58" y="140" width="240" height="2.5" rx="1.25" fill="url(#rule)"/>
+  <text x="58" y="172" fill="#6e7681" font-size="14" letter-spacing="2.5" font-weight="600">AGENTIC SYSTEMS &#183; COMPUTER VISION &#183; MLOPS</text>
+</svg>

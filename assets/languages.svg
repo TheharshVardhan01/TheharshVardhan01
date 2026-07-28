@@ -1,0 +1,36 @@
+<svg width="1000" height="230" viewBox="0 0 1000 230" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1000" height="230" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <text x="40" y="46" fill="#e6edf3" font-size="16" font-weight="700" letter-spacing="2">LANGUAGES</text>
+  <text x="40" y="66" fill="#6e7681" font-size="12">by code size across public repositories, markup excluded</text>
+
+  <!-- bars: label x=40, bar x=150 w up to 700, value at end -->
+  <g font-size="13" font-weight="600">
+    <text x="40" y="102" fill="#c9d1d9">Python</text>
+    <rect x="150" y="90" width="700" height="14" rx="7" fill="#21262d"/>
+    <rect x="150" y="90" width="462" height="14" rx="7" fill="#3572A5">
+      <animate attributeName="width" from="0" to="462" dur="1s" fill="freeze"/>
+    </rect>
+    <text x="624" y="102" fill="#8b949e" font-size="12">66%</text>
+
+    <text x="40" y="132" fill="#c9d1d9">Java</text>
+    <rect x="150" y="120" width="700" height="14" rx="7" fill="#21262d"/>
+    <rect x="150" y="120" width="152" height="14" rx="7" fill="#b07219">
+      <animate attributeName="width" from="0" to="152" dur="1s" fill="freeze"/>
+    </rect>
+    <text x="314" y="132" fill="#8b949e" font-size="12">22%</text>
+
+    <text x="40" y="162" fill="#c9d1d9">JavaScript</text>
+    <rect x="150" y="150" width="700" height="14" rx="7" fill="#21262d"/>
+    <rect x="150" y="150" width="77" height="14" rx="7" fill="#f1e05a">
+      <animate attributeName="width" from="0" to="77" dur="1s" fill="freeze"/>
+    </rect>
+    <text x="239" y="162" fill="#8b949e" font-size="12">11%</text>
+
+    <text x="40" y="192" fill="#c9d1d9">C++ / Other</text>
+    <rect x="150" y="180" width="700" height="14" rx="7" fill="#21262d"/>
+    <rect x="150" y="180" width="14" height="14" rx="7" fill="#f34b7d">
+      <animate attributeName="width" from="0" to="14" dur="1s" fill="freeze"/>
+    </rect>
+    <text x="176" y="192" fill="#8b949e" font-size="12">1%</text>
+  </g>
+</svg>
