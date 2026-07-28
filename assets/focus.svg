@@ -41,31 +41,58 @@
   <g transform="translate(340,0)">
     <rect x="0" y="0" width="320" height="300" rx="12" fill="#0d1117" stroke="#30363d"/>
     <text x="28" y="42" fill="#e6edf3" font-size="16" font-weight="700" letter-spacing="2">COMPUTER VISION</text>
-    <text x="28" y="62" fill="#6e7681" font-size="12">detection, forensics, gesture recognition</text>
+    <text x="28" y="62" fill="#6e7681" font-size="12">convolutional networks, detection, forensics</text>
 
-    <!-- frame -->
-    <rect x="48" y="90" width="224" height="150" rx="6" fill="#161b22" stroke="#30363d"/>
-    <!-- corner marks -->
-    <g stroke="#3fb950" stroke-width="2" fill="none" opacity="0.9">
-      <path d="M48,104 V96 a6,6 0 0 1 6,-6 h8"/>
-      <path d="M258,90 h8 a6,6 0 0 1 6,6 v8"/>
-      <path d="M272,226 v8 a6,6 0 0 1 -6,6 h-8"/>
-      <path d="M62,240 h-8 a6,6 0 0 1 -6,-6 v-8"/>
+    <!-- input image grid -->
+    <g>
+      <rect x="34" y="130" width="56" height="56" rx="4" fill="#161b22" stroke="#30363d"/>
+      <g stroke="#21262d" stroke-width="1">
+        <path d="M48,130 V186 M62,130 V186 M76,130 V186"/>
+        <path d="M34,144 H90 M34,158 H90 M34,172 H90"/>
+      </g>
+      <text x="62" y="206" text-anchor="middle" fill="#6e7681" font-size="10" letter-spacing="1">INPUT</text>
     </g>
-    <!-- crosshair -->
-    <g stroke="#21262d" stroke-width="1">
-      <path d="M160,90 V240 M48,165 H272"/>
+
+    <!-- conv stage 1: stacked feature maps -->
+    <g>
+      <rect x="132" y="122" width="44" height="44" rx="3" fill="#161b22" stroke="#30363d"/>
+      <rect x="126" y="130" width="44" height="44" rx="3" fill="#161b22" stroke="#3d4550"/>
+      <rect x="120" y="138" width="44" height="44" rx="3" fill="#161b22" stroke="#58a6ff" stroke-opacity="0.8">
+        <animate attributeName="stroke-opacity" values="0.8;0.3;0.8" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <text x="148" y="206" text-anchor="middle" fill="#6e7681" font-size="10" letter-spacing="1">CONV</text>
     </g>
-    <!-- detections -->
-    <rect x="76" y="120" width="58" height="46" rx="3" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
-    <text x="76" y="114" fill="#58a6ff" font-size="10" font-weight="600">0.97</text>
-    <rect x="178" y="150" width="70" height="60" rx="3" fill="none" stroke="#d29922" stroke-width="1.5"/>
-    <text x="178" y="144" fill="#d29922" font-size="10" font-weight="600">0.91</text>
-    <!-- scanline -->
-    <line x1="50" y1="100" x2="270" y2="100" stroke="#3fb950" stroke-width="1.5" stroke-opacity="0.7">
-      <animate attributeName="y1" values="100;232;100" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="y2" values="100;232;100" dur="6s" repeatCount="indefinite"/>
-    </line>
+
+    <!-- conv stage 2: smaller, deeper -->
+    <g>
+      <rect x="212" y="130" width="30" height="30" rx="3" fill="#161b22" stroke="#30363d"/>
+      <rect x="207" y="136" width="30" height="30" rx="3" fill="#161b22" stroke="#3d4550"/>
+      <rect x="202" y="142" width="30" height="30" rx="3" fill="#161b22" stroke="#bc8cff" stroke-opacity="0.8">
+        <animate attributeName="stroke-opacity" values="0.8;0.3;0.8" dur="4s" begin="1s" repeatCount="indefinite"/>
+      </rect>
+      <text x="221" y="206" text-anchor="middle" fill="#6e7681" font-size="10" letter-spacing="1">POOL</text>
+    </g>
+
+    <!-- output nodes -->
+    <g>
+      <circle cx="282" cy="138" r="4" fill="#0d1117" stroke="#3fb950" stroke-width="1.4"/>
+      <circle cx="282" cy="156" r="4" fill="#0d1117" stroke="#3fb950" stroke-width="1.4"/>
+      <circle cx="282" cy="174" r="4" fill="#0d1117" stroke="#3fb950" stroke-width="1.4"/>
+      <text x="282" y="206" text-anchor="middle" fill="#6e7681" font-size="10" letter-spacing="1">CLASS</text>
+    </g>
+
+    <!-- connections -->
+    <g stroke="#6e7681" stroke-width="1.2" fill="none">
+      <path d="M90,158 H118"/>
+      <path d="M176,158 H200"/>
+      <path d="M238,148 L277,138 M238,155 L277,156 M238,162 L277,174"/>
+    </g>
+
+    <!-- signal packet -->
+    <circle r="2.5" fill="#58a6ff">
+      <animateMotion path="M90,158 H200" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.9;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
   </g>
 
   <!-- ============ Panel 3: MLOps ============ -->
