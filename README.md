@@ -7,7 +7,12 @@
 <br/>
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-theharshvardhan01.github.io-1f6feb?style=for-the-badge&logo=githubpages&logoColor=white)](https://theharshvardhan01.github.io)
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin-icon&logoColor=white)](https://www.linkedin.com/in/theharsh-vardhan-/)
 [![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harsh.vardhan_btech23@gsv.ac.in)
+
+<br/>
+
+<img src="assets/agentic-loop.svg" width="410" alt="Agentic AI systems: plan, use tools, observe, reflect"/>&nbsp;<img src="assets/vision.svg" width="410" alt="Computer vision: detection, forgery analysis, gesture recognition"/>
 
 </div>
 
