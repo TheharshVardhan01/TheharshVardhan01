@@ -1,0 +1,13 @@
+# Needed by the daily GitHub Actions workflow (heatmap only)
+requests>=2.32
+beautifulsoup4>=4.12
+
+# Needed only when regenerating the ASCII portrait locally.
+# Safe to install everywhere; the daily workflow never imports them.
+pillow>=10.0
+numpy>=1.24
+
+# Optional, local-only extras for the portrait pipeline.
+# prep_photo.py detects these and falls back cleanly if they are absent:
+#   opencv-python   -> hardware CLAHE (a NumPy CLAHE is used otherwise)
+#   rembg           -> background cutout (luminance keying is used otherwise)
