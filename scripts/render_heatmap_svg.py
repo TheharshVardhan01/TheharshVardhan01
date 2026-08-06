@@ -3,8 +3,9 @@
 
 The classic 53-week x 7-day calendar of rounded, colored boxes with a
 GitHub-ish green ramp. The grid reveals itself once with a diagonal,
-line-after-line slide-down (CSS keyframes that play on load, then freeze —
-no looping glow), plus month labels, a Less->More legend, and a stats footer.
+line-after-line slide-down (CSS keyframes that play on load), then stays
+alive: a radar sweep crosses the grid on an infinite loop and the best day
+pulses. Month labels, a Less->More legend, and a stats footer included.
 
     python scripts/render_heatmap_svg.py        # writes contrib-heatmap.svg
     STATIC=1 python scripts/render_heatmap_svg.py
@@ -103,6 +104,19 @@ def main() -> int:
     p.append(f"<style>text{{font-family:{FONT};font-size:11px;fill:{TEXT};}}"
              f"{anim_css}{static_css}</style>")
 
+    sweep_begin = round(WAVE_S + 1.0, 2)
+    p.append(
+        '<defs>'
+        '<linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">'
+        '<stop offset="0" stop-color="#39d353" stop-opacity="0"/>'
+        '<stop offset="0.5" stop-color="#39d353" stop-opacity="0.28"/>'
+        '<stop offset="1" stop-color="#39d353" stop-opacity="0"/>'
+        '</linearGradient>'
+        f'<clipPath id="grid"><rect x="{LEFT}" y="{TOP}" width="{grid_w}" '
+        f'height="{grid_h}"/></clipPath>'
+        '</defs>'
+    )
+
     p.append(f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" '
              f'rx="8" fill="{BG}" stroke="{BORDER}"/>')
 
@@ -141,6 +155,23 @@ def main() -> int:
             p.append(f'<rect class="c" x="{x}" y="{y}" width="{CELL}" height="{CELL}" '
                      f'rx="{RADIUS}" fill="{color}"{style}>'
                      f'<title>{day["count"]} on {day["date"]}</title></rect>')
+            # the best day keeps pulsing a bright ring, forever
+            if not STATIC and best_date and day["date"] == best_date and day["count"] > 0:
+                p.append(f'<rect x="{x - 1.5}" y="{y - 1.5}" width="{CELL + 3}" '
+                         f'height="{CELL + 3}" rx="{RADIUS + 1}" fill="none" '
+                         f'stroke="{PALETTE[5]}" stroke-width="1.5" opacity="0">'
+                         f'<animate attributeName="opacity" values="0;0.9;0" '
+                         f'dur="2.2s" begin="{sweep_begin}s" '
+                         f'repeatCount="indefinite"/></rect>')
+
+    # infinite radar sweep across the grid
+    if not STATIC:
+        p.append(f'<g clip-path="url(#grid)">'
+                 f'<rect x="{LEFT - 90}" y="{TOP}" width="90" height="{grid_h}" '
+                 f'fill="url(#sweep)">'
+                 f'<animate attributeName="x" from="{LEFT - 90}" '
+                 f'to="{LEFT + grid_w + 10}" begin="{sweep_begin}s" dur="6.5s" '
+                 f'repeatCount="indefinite" calcMode="linear"/></rect></g>')
 
     # footer: stats left, legend right
     fy = TOP + grid_h + 26

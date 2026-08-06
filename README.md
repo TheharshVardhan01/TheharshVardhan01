@@ -1,23 +1,27 @@
 <div align="center">
 
-<h3><code>harsh@github ~ $ ./contributions.sh</code></h3>
-
-<img src="./contrib-heatmap.svg" width="860" alt="Contribution heatmap — animated calendar of the last year" />
+<img src="./banner.svg" width="860" alt="Harsh Vardhan — AI/ML engineer · agentic systems · computer vision · MLOps" />
 
 <br><br>
 
-<h3><code>harsh@github ~ $ whoami</code></h3>
+<img src="./prompt-contrib.svg" height="34" alt="harsh@github ~ $ ./contributions.sh" />
+
+<img src="./contrib-heatmap.svg" width="860" alt="Contribution heatmap — animated calendar of the last year with a looping radar sweep" />
+
+<br><br>
+
+<img src="./prompt-whoami.svg" height="34" alt="harsh@github ~ $ whoami" />
 
 <table>
   <tr>
-    <td valign="top"><img src="./ascii-portrait.svg" width="370" alt="Self-typing ASCII art portrait" /></td>
+    <td valign="top"><img src="./ascii-portrait.svg" width="370" alt="Matrix-green ASCII art portrait — types itself in, then keeps flickering" /></td>
     <td valign="top"><img src="./info-card.svg" width="490" alt="Neofetch-style info card — AI/ML engineer, agentic systems, computer vision, MLOps" /></td>
   </tr>
 </table>
 
 <br>
 
-<h3><code>harsh@github ~ $ ls ~/projects</code></h3>
+<img src="./prompt-projects.svg" height="34" alt="harsh@github ~ $ ls ~/projects" />
 
 <table>
   <tr><th align="left">project</th><th align="left">what it does</th><th align="left">tech</th></tr>
@@ -30,11 +34,11 @@
 
 <br>
 
-<h3><code>harsh@github ~ $ cat ~/.contact</code></h3>
+<img src="./prompt-contact.svg" height="34" alt="harsh@github ~ $ cat ~/.contact" />
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-theharshvardhan01.github.io-1f6feb?style=for-the-badge&logo=githubpages&logoColor=white)](https://theharshvardhan01.github.io)
-[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin-icon&logoColor=white)](https://www.linkedin.com/in/theharsh-vardhan-/)
-[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harsh.vardhan_btech23@gsv.ac.in)
+[![Portfolio](https://img.shields.io/badge/Portfolio-theharshvardhan01.github.io-238636?style=for-the-badge&logo=githubpages&logoColor=white)](https://theharshvardhan01.github.io)
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-Connect-2ea043?style=for-the-badge&logo=linkedin-icon&logoColor=white)](https://www.linkedin.com/in/theharsh-vardhan-/)
+[![Email](https://img.shields.io/badge/Email-Contact-39d353?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harsh.vardhan_btech23@gsv.ac.in)
 
 <br>
 

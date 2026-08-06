@@ -15,6 +15,7 @@ Edit ROWS below when your details change, then re-run and commit.
 from __future__ import annotations
 
 import html
+import math
 import os
 from pathlib import Path
 
@@ -37,18 +38,22 @@ ROWS: list[tuple[str, str]] = [
     ("Focus", "agentic systems · computer vision · MLOps"),
     ("Stack", "PyTorch · LangChain · OpenCV · FastAPI · Docker"),
     ("Projects", "RAGvisor · DeepDetect · AI Krishidoot"),
+    ("Status", "@STATUS@"),   # replaced by the pulsing online dot
     ("", ""),
     ("Web", "theharshvardhan01.github.io"),
     ("Contact", "harsh.vardhan_btech23@gsv.ac.in"),
 ]
 
-# --- look ------------------------------------------------------------------
+STATUS_TEXT = "online — building agents"
+
+# --- look: matrix green ----------------------------------------------------
 BG = "#0d1117"
-BORDER = "#30363d"
-KEY = "#58a6ff"      # neofetch keys read in accent blue
+BORDER = "#1b2a1f"
+KEY = "#39d353"      # keys glow terminal green
 VAL = "#c9d1d9"
 DIM = "#8b949e"
 GREEN = "#39d353"
+BRIGHT = "#7ee787"
 
 FONT = "'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
 FS = 12.5            # font size
@@ -78,10 +83,89 @@ def appear(begin: float) -> str:
 
 
 def main() -> int:
-    # host line + separator + rows + swatch strip
-    n_lines = 2 + len(ROWS) + 2
     width = 490
-    height = TITLEBAR_H + 18 + n_lines * LH + 14
+
+    # Body elements are laid out first with a running y cursor; the panel
+    # height is then computed from where the content actually ends, so the
+    # bottom padding stays honest no matter what ROWS contains.
+    body: list[str] = []
+
+    y = TITLEBAR_H + 18 + LH * 0.6
+    begin = T0
+
+    def line(inner: str, dy: float = 0) -> None:
+        nonlocal y, begin
+        op = "1" if STATIC else "0"
+        body.append(f'<g opacity="{op}">{appear(begin)}{inner}</g>')
+        y += LH + dy
+        begin += STAGGER
+
+    # host + separator, like neofetch's header
+    line(f'<text x="{PAD_X}" y="{y}"><tspan fill="{GREEN}">{esc(HOST_LINE)}</tspan></text>')
+    line(f'<text x="{PAD_X}" y="{y}" fill="{DIM}">{esc(SEP)}</text>')
+
+    for key, val in ROWS:
+        if not key and not val:
+            y += LH * 0.35   # blank spacer row, no animation slot burned
+            continue
+        if val == "@STATUS@":
+            # pulsing green dot + status text, alive forever
+            pulse = "" if STATIC else (
+                '<animate attributeName="opacity" values="1;0.25;1" dur="2s" '
+                'repeatCount="indefinite"/>'
+            )
+            halo = "" if STATIC else (
+                '<animate attributeName="r" values="4;7;4" dur="2s" '
+                'repeatCount="indefinite"/>'
+                '<animate attributeName="opacity" values="0.5;0;0.5" dur="2s" '
+                'repeatCount="indefinite"/>'
+            )
+            inner = (f'<text x="{PAD_X}" y="{y}">'
+                     f'<tspan fill="{KEY}">{esc(key)}</tspan>'
+                     f'<tspan fill="{DIM}">: </tspan></text>'
+                     f'<circle cx="{PAD_X + 78}" cy="{y - 4}" r="5" '
+                     f'fill="{BRIGHT}" opacity="0.5">{halo}</circle>'
+                     f'<circle cx="{PAD_X + 78}" cy="{y - 4}" r="3.5" '
+                     f'fill="{BRIGHT}">{pulse}</circle>'
+                     f'<text x="{PAD_X + 90}" y="{y}" fill="{VAL}">'
+                     f'{esc(STATUS_TEXT)}</text>')
+        elif key:
+            inner = (f'<text x="{PAD_X}" y="{y}">'
+                     f'<tspan fill="{KEY}">{esc(key)}</tspan>'
+                     f'<tspan fill="{DIM}">: </tspan>'
+                     f'<tspan fill="{VAL}">{esc(val)}</tspan></text>')
+        else:
+            inner = f'<text x="{PAD_X}" y="{y}" fill="{VAL}">{esc(val)}</text>'
+        line(inner)
+
+    # trailing shell prompt with a forever-blinking cursor
+    prompt = "harsh@github ~ $"
+    prompt_w = round(len(prompt) * FS * 0.62 + 4, 1)
+    blink = "" if STATIC else (
+        f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" '
+        f'begin="{begin + FADE:.2f}s" dur="1.1s" repeatCount="indefinite"/>'
+    )
+    line(f'<text x="{PAD_X}" y="{y}" fill="{GREEN}">{esc(prompt)}</text>'
+         f'<rect x="{PAD_X + prompt_w + 6}" y="{y - FS + 1}" width="8" '
+         f'height="{FS + 1}" fill="{BRIGHT}" opacity="{1 if STATIC else 0}">'
+         + ("" if STATIC else
+            f'<animate attributeName="opacity" from="0" to="1" '
+            f'begin="{begin:.2f}s" dur="0.2s" fill="freeze"/>')
+         + blink + '</rect>')
+
+    # neofetch's trailing color swatches
+    y += LH * 0.2
+    sw, sh = 26, 13
+    colors = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
+    swatches = "".join(
+        f'<rect x="{PAD_X + i * sw}" y="{y - sh + 2}" width="{sw}" height="{sh}" '
+        f'fill="{c}"/>' for i, c in enumerate(colors)
+    )
+    op = "1" if STATIC else "0"
+    body.append(f'<g opacity="{op}">{appear(begin)}{swatches}</g>')
+
+    # content bottom = swatch strip bottom (drawn at y - sh + 2, height sh)
+    height = math.ceil(y + 2) + 14
 
     p: list[str] = []
     p.append(
@@ -99,44 +183,7 @@ def main() -> int:
     p.append(f'<text x="{width / 2}" y="{TITLEBAR_H / 2 + 4.5}" text-anchor="middle" '
              f'fill="{DIM}">{esc(TITLE)}</text>')
 
-    y = TITLEBAR_H + 18 + LH * 0.6
-    begin = T0
-
-    def line(inner: str, dy: float = 0) -> None:
-        nonlocal y, begin
-        op = "1" if STATIC else "0"
-        p.append(f'<g opacity="{op}">{appear(begin)}{inner}</g>')
-        y += LH + dy
-        begin += STAGGER
-
-    # host + separator, like neofetch's header
-    line(f'<text x="{PAD_X}" y="{y}"><tspan fill="{GREEN}">{esc(HOST_LINE)}</tspan></text>')
-    line(f'<text x="{PAD_X}" y="{y}" fill="{DIM}">{esc(SEP)}</text>')
-
-    for key, val in ROWS:
-        if not key and not val:
-            y += LH * 0.35   # blank spacer row, no animation slot burned
-            continue
-        if key:
-            inner = (f'<text x="{PAD_X}" y="{y}">'
-                     f'<tspan fill="{KEY}">{esc(key)}</tspan>'
-                     f'<tspan fill="{DIM}">: </tspan>'
-                     f'<tspan fill="{VAL}">{esc(val)}</tspan></text>')
-        else:
-            inner = f'<text x="{PAD_X}" y="{y}" fill="{VAL}">{esc(val)}</text>'
-        line(inner)
-
-    # neofetch's trailing color swatches
-    y += LH * 0.2
-    sw, sh = 26, 13
-    colors = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
-    swatches = "".join(
-        f'<rect x="{PAD_X + i * sw}" y="{y - sh + 2}" width="{sw}" height="{sh}" '
-        f'fill="{c}"/>' for i, c in enumerate(colors)
-    )
-    op = "1" if STATIC else "0"
-    p.append(f'<g opacity="{op}">{appear(begin)}{swatches}</g>')
-
+    p.extend(body)
     p.append("</svg>")
     OUT.write_text("".join(p), encoding="utf-8")
     mode = "static" if STATIC else "animated"
