@@ -1,0 +1,7 @@
+name: Probe push trigger
+on: push
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo push trigger works
